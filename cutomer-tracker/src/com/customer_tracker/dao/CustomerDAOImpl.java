@@ -2,8 +2,6 @@ package com.customer_tracker.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +16,6 @@ public class CustomerDAOImpl implements CustomerDOA {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Customer> getCustomers() {
 		// get hibernate session
 		Session session = this.sessionFactory.getCurrentSession();
@@ -29,6 +26,15 @@ public class CustomerDAOImpl implements CustomerDOA {
 		
 		// return results
 		return customers;
+	}
+
+	@Override
+	public void addCustomer(Customer customer) {
+		// get current session
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		// save object to session
+		session.save(customer);
 	}
 
 }
