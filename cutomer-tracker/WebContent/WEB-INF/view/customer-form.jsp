@@ -8,7 +8,8 @@
 <title>Add Customer Form</title>
 </head>
 <body>
-	<form:form action="customer" modelAttribute="customer" method="POST">
+	<form:form action="add/customer" modelAttribute="customer" method="POST">
+		<form:hidden path="id"/>
 		First name: <form:input path="firstName"/>
 		<br>
 		Last name: <form:input path="lastName"/>

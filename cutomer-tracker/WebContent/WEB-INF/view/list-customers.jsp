@@ -17,14 +17,21 @@
 	<div id="container">
 		<div id="content">
 			<input type="button" value="Add Customer" 
-				onclick="window.location.href='add/form'; return false;"/>
+				onclick="window.location.href='addForm'; return false;"/>
 			<table>
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
+					<th>Action</th>
 				</tr>
 				<c:forEach var="customer" items="${customers}">
+					<c:url var="updateLink" value="/customer/updateForm">
+						<c:param name="customerId" value="${customer.id}"/>
+					</c:url>
+					<c:url var="deleteLink" value="/customer/delete">
+						<c:param name="customerId" value="${customer.id}"/>
+					</c:url>
 					<tr>
 						<td>
 							${customer.firstName}
@@ -34,6 +41,13 @@
 						</td>
 						<td>
 							${customer.email}
+						</td>
+						<td>
+							<a href="${updateLink}">Update</a>
+							|
+							<a href="${deleteLink}" 
+							onclick="if (!(confirm('are you sure you want to delete this customer?'))) return false
+							">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>
