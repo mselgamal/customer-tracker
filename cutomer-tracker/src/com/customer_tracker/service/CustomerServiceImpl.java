@@ -27,4 +27,15 @@ public class CustomerServiceImpl implements CustomerService {
 	public void addCustomer(Customer customer) {
 		this.customerDOA.addCustomer(customer);
 	}
+
+	@Override
+	public void updateCustomer(Customer customer) {
+		this.customerDOA.updateCustomer(customer);
+	}
+
+	@Override
+	@Transactional
+	public void deleteCustomer(Customer customer) {
+		this.customerDOA.deleteCustomer(customer);
+	}
 }

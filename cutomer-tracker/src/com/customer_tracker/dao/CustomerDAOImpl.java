@@ -37,4 +37,12 @@ public class CustomerDAOImpl implements CustomerDOA {
 		session.save(customer);
 	}
 
+	@Override
+	public void updateCustomer(Customer customer) {
+	}
+
+	@Override
+	public void deleteCustomer(Customer customer) {
+	}
+
 }

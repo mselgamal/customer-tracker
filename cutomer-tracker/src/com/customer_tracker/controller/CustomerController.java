@@ -49,6 +49,6 @@ public class CustomerController {
 		this.customerService.addCustomer(customer);
 		
 		// return list-customer.jsp
-		return "list-customers";
+		return "redirect:/customer/list";
 	}
 }
